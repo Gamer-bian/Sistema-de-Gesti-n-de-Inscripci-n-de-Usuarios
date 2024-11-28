@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.apagar {
+    display: none;
+}
+
+.encender {
+    display: flex;
+}
+
+.horarios {
+    display: none;
+}
+
+body {
+    background:  #B2EBF2;
+}
+
+#nav {
+    background-color: #00796B; 
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+#nav h4 {
+    color: #FFFFFF; 
+    font-weight: bold;
+}
+
+.custom-form {
+    background-color: #FFFFFF; 
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0; 
+}
+
+.custom-form h2 {
+    background-color: #004D40;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #00796B;
+    border: none;
+    border-radius: 5px; 
+    padding: 10px 15px;
+    color: #FFFFFF; 
+}
+
+.btn-primary:hover {
+    background-color: #004D40;
+}
+
+.btn-secondary {
+    background-color: #5ac5bc; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.btn-secondary:hover {
+    background-color: #80CBC4;
+}
+
+.table th {
+    background-color: #004D40; 
+    color: #FFFFFF;
+}
+
+.table td {
+    background-color: #FFFFFF;
+}
+
+.unica-materia {
+    background-color: #E0F2F1;
+    border: 1px solid #00796B; 
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.unica-materia h4 {
+    color: #004D40;
+    margin-bottom: 10px; 
+}
+
+.unica-horario {
+    margin: 10px 0; 
+}
+
+.unica-materia input[type="radio"] {
+    margin-right: 10px; 
+}
+
+.unica-materia label {
+    color: #00796B;
+    cursor: pointer;
+}
+
+.unica-materia input[type="radio"]:checked + label {
+    font-weight: bold; 
+    color: #004D40;
+}
+
+#materiasForm, .container, .threeForm__container{
+    width: 900px;
+}
+#container__form, #loginContainer, #registerContainer{
+    width: 85vw; 
+    max-width: 500px;
+}
+
+.info-basica {
+    background-color: #E0F7FA;
+    border: 1px solid #00838F; 
+    border-radius: 8px; 
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.info-basica h2 {
+    background-color: #0097A7;
+    color: #FFFFFF; 
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+.info-basica .list-group-item {
+    background-color: #B2EBF2; 
+    color: #006064;
+}
+
+.info-basica .list-group-item:hover {
+    background-color: #80DEEA; 
+}
+
+/* Estilo del formulario de edición */
+#formEditarHorarioContainer{
+    display: flex;
+    justify-content: center;
+}
+#formEditarHorario {
+    background-color: #E0F7FA;
+    border: 1px solid #00838F; 
+    border-radius: 8px; 
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 900px;
+}
+
+#formEditarHorario h2 {
+    background-color: #0097A7;
+    color: #FFFFFF; 
+    padding: 10px;
+    border-radius: 5px; 
+    margin-bottom: 20px;
+}
+
+#formEditarHorario .form-control {
+    border: 1px solid #00838F; 
+    background-color: #B2EBF2;
+    color: #006064;
+}
+
+#formEditarHorario .form-control:focus {
+    background-color: #80DEEA; 
+    border-color: #006064;
+}
+
+#formEditarHorario button {
+    background-color: #0097A7;
+    border: none;
+    color: white;
+}
+
+#formEditarHorario button:hover {
+    background-color: #00796B;
+}
+

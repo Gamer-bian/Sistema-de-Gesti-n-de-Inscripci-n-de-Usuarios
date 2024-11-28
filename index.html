@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS de Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+    <section id="section-sistema">
+        <nav id="nav" class="w-100 py-3 d-flex">
+            <h4 class="text-white ml-3">Sistema de Inscripción</h4>
+        </nav>
+    
+        <!-- Formulario de registro -->
+        <div id="registerForm" class="sistema__container mt-5 flex-column justify-content-center align-items-center d-none">
+            <form action="" id="registerContainer" class="form-group bg-white p-4 rounded shadow-sm">
+                <h2 class="bg-info text-white p-2 rounded text-center">Crear Cuenta</h2>
+    
+                <div class="form__input-username mt-3">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username" id="username" class="form-control pl-2 pr-2">
+                </div>
+    
+                <div class="form__input-password mt-3">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+    
+                <div class="form__botones mt-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary" id="btnRegister">Registrar</button>
+                </div>
+            </form>
+        </div>
+    
+        <!-- Formulario de inicio de sesión -->
+        <div id="loginForm" class="sistema__container d-flex mt-5 flex-column justify-content-center align-items-center">
+            <form action="" id="loginContainer" class="form-group bg-white p-4 rounded shadow-sm">
+                <h2 class="bg-info text-white p-2 rounded text-center">Iniciar Sesión</h2>
+    
+                <div class="form__input-username mt-3">
+                    <label for="loginUsername">Nombre de usuario:</label>
+                    <input type="text" name="loginUsername" id="loginUsername" class="form-control pl-2 pr-2">
+                </div>
+    
+                <div class="form__input-password mt-3">
+                    <label for="loginPassword">Contraseña:</label>
+                    <input type="password" name="loginPassword" id="loginPassword" class="form-control">
+                </div>
+    
+                <div class="form__botones mt-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-secondary" id="btnGoToRegister">Registrarse</button>
+                    <button type="button" class="btn btn-primary ml-2" id="btnLogin">Iniciar Sesión</button>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn btn-link" id="btnRecoverPassword">¿Olvidaste tu contraseña?</button>
+                </div>
+            </form>
+        </div>
+    <!-- Formulario de recuperación de contraseña -->
+    <div id="recoverPasswordForm" class="sistema__container d-none mt-5 flex-column justify-content-center align-items-center">
+        <form action="" id="recoverContainer" class="form-group bg-white p-4 rounded shadow-sm">
+            <h2 class="bg-warning text-white p-2 rounded text-center">Recuperar Contraseña</h2>
+
+            <div class="form__input-username mt-3">
+                <label for="recoverUsername">Nombre de usuario:</label>
+                <input type="text" name="recoverUsername" id="recoverUsername" class="form-control pl-2 pr-2">
+                <div id="passwordMessage" class="text-danger mt-2 d-none"></div> <!-- Mensaje para mostrar la contraseña -->
+            </div>
+
+            <div class="form__botones mt-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" id="btnRecover">Recuperar</button>
+                <button type="button" class="btn btn-secondary ml-2" id="btnBackToLogin">Volver</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Primer formulario -->
+    <div class="sistema__container flex-column mt-4 justify-content-center align-items-center d-none" id="firstForm">
+        <form action="" id="container__form" class="form-group bg-white p-4 rounded shadow-sm">
+            <h2 class="bg-info text-white p-2 rounded text-center">Datos personales</h2>
+
+            <div class="form__input-nombre mt-3">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="form-control pl-2 pr-2">
+            </div>
+
+            <div class="form__input-provincia mt-3">
+                <label for="provincia">Provincia:</label>
+                <input type="text" name="provincia" id="provincia" class="form-control">
+            </div>
+
+            <div class="form__input-ciudad mt-3">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" name="ciudad" id="ciudad" class="form-control">
+            </div>
+
+            <div class="form__input-sector mt-3">
+                <label for="sector">Sector:</label>
+                <input type="text" name="sector" id="sector" class="form-control">
+            </div>
+
+            <div class="form__input-calle mt-3">
+                <label for="calle">Calle:</label>
+                <input type="text" name="calle" id="calle" class="form-control">
+            </div>
+
+            <div class="form__input-carrera mt-3">
+                <label for="carrera">Carrera:</label>
+                <select name="carrera" id="carrera" class="form-control">
+                    <option value="">Elegir carrera</option>
+                    <option value="software">Software</option>
+                    <option value="multimedia">Multimedia</option>
+                    <option value="redes">Redes</option>
+                </select>
+            </div>
+
+            <div class="form__botones mt-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary mr-3" id="btnClean">Limpiar</button>
+                <button type="submit" class="btn btn-primary" id="btnNext">Siguiente</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Segundo formulario -->
+    <section id="formsecond" class="mt-2 d-none">
+        <div class="formsecond__container d-flex flex-column justify-content-center align-items-center">
+            <form action="" id="materiasForm" class="form-group bg-white p-4 rounded shadow-sm">
+                <h2 class="bg-info text-white p-2 rounded text-center">Selección de materias</h2>
+                <div class="row" id="materias">
+                    <!-- Las materias se agregarán aquí dinámicamente -->
+                </div>
+                <div class="formSecond__botones mt-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-secondary mr-3" id="formSecond__atras">Atrás</button>
+                    <button type="button" class="btn btn-primary" id="formSecond__Registrar">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Tercer formulario -->
+    <section id="threeForm" class="mt-2 flex-column justify-content-center align-items-center mb-3 d-none">
+        <div id="threeForm__informacion-basica" class="d-flex flex-column justify-content-center align-items-center mb-5"></div>
+            <!-- Formulario para editar horarios -->
+     <section id="formEditarHorarioContainer">
+        <div id="formEditarHorario" class="mt-3 info-basica d-none">
+            <h2 class="text-center">Editar Horario</h2>
+            <form id="editarHorarioForm" class="d-flex flex-column justify-content-center align-items-center">
+                <div class="form-group w-75">
+                    <label for="diaHorario">Día:</label>
+                    <select id="diaHorario" class="form-control">
+                        <option value="lunes">Lunes</option>
+                        <option value="martes">Martes</option>
+                        <option value="miercoles">Miércoles</option>
+                        <option value="jueves">Jueves</option>
+                        <option value="viernes">Viernes</option>
+                    </select>
+                </div>
+                <div class="form-group w-75">
+                    <label for="materiaHorario">Materia:</label>
+                    <input type="text" id="materiaHorario" class="form-control" placeholder="Nombre de la materia">
+                </div>
+                <div class="form-group w-75">
+                    <label for="nuevaHora">Nueva Hora:</label>
+                    <input type="text" id="nuevaHora" class="form-control" placeholder="Formato: M (8:00am a 12:00pm)">
+                </div>
+                <button type="button" id="guardarHorario" class="btn btn-primary mt-3">Guardar Cambios</button>
+            </form>
+        </div>
+    </section>
+
+        <div class="threeForm__container">
+            <h2 class="mt-5 bg-info text-white p-2 rounded text-center">Horarios Seleccionados</h2>
+            <table class="table" id="tablaHorarios">
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="filaMaterias1">
+                        <td id="materia1"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="filaMaterias2">
+                        <td id="materia2"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="filaMaterias3">
+                        <td id="materia3"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="filaMaterias4">
+                        <td id="materia4"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="filaMaterias5">
+                        <td id="materia5"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="formSecond__botones mt-4 d-flex justify-content-end w-100">
+                <button type="button" class="btn btn-secondary mr-3" id="formThree__atras">Atrás</button>
+                <button type="button" class="btn btn-success ml-3 mr-3" id="formThree__descargarPDF">Descargar PDF</button>
+                <button type="button" class="btn btn-primary" id="formThree__Registrar">Finalizar</button>
+            </div>
+        </div>
+    </section>
+
+
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmar Envío</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de enviar el formulario?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmSubmit">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript de Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Tu script -->
+    <script src="./javascript/script-jquery.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
